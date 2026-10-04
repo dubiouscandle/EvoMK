@@ -83,14 +83,16 @@ Before adding implementing recording to the simulation loop, dozens of weird, ep
 <details>
     <summary><b>Sketches</b></summary>
   
-</<img width="300" height="300" alt="2026_10_04_0og_Kleki" src="https://github.com/user-attachments/assets/3b97fe7e-ff9d-4cef-96dc-f74f9ccc2b48" />
-
+<img width="300" height="300" alt="2026_10_04_0og_Kleki" src="https://github.com/user-attachments/assets/3b97fe7e-ff9d-4cef-96dc-f74f9ccc2b48" />
+<br>
 <img width="300" height="300" alt="2026_10_04_0o9_Kleki" src="https://github.com/user-attachments/assets/6399fac8-b522-44dd-8da7-4d81b2734f9f" />
-
-<img width="300" height="300" alt="2026_10_04_0od_Kleki" src="https://github.com/user-attachments/assets/578e2c06-f6f1-430a-be71-5cb3bd8ee620" />
-
+<br>
+<img width="300" height="300" alt="2026_10_04_0ok_Kleki" src="https://github.com/user-attachments/assets/f60b115b-8692-49ea-9975-0aed7fa191e2" />
+<br>
 I'll add more if I remember any more. I think I sat at my computer for like 2 days trying to see what creatures could come up.
-details>
+
+</details>
+
 
 
 
