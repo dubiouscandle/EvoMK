@@ -77,7 +77,7 @@ This project currently exists as a bespoke research prototype and personal exper
 </details>
 
 
-Before adding implementing recording to the simulation loop, dozens of weird, ephemeral body plans came and went unrecorded. Instead of burning CPU cycles trying to force the optimizer to stumble into the exact same evolutionary dead ends, I thought it would be cool to document them from memory, kind of like I'm Charles Darwin:
+Before adding implementing recording to the simulation loop, I saw a lot of weird body plans that came and went unrecorded. Instead of burning CPU cycles trying to get the program to stumble into the same strategies, I thought it would be cool to document them using drawings, kind of like I'm Charles Darwin:
 
 
 <details>
