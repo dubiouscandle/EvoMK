@@ -4,7 +4,7 @@ A 2D physics sandbox built in Kotlin using libGDX and Box2D. It co-evolves body 
 
 This started out purely as a weekend toy project to see what would happen if I threw simulated physics and neural nets together without any rules. Going into it, I always had a hard time intuitively buying into biological evolution. For example, the leap from random mutations to something as specialized as a beaver building a dam felt kind of unrealistic to me. But watching uncoordinated muscle twitches accidentally stumble into a self-stabilizing flywheel completely changed how I think about emergent complexity.
 
-The plan was a modular framework with varying morphologies and environments. But flat-ground running alone produced such rich, unexpected mechanics that I dropped the extra scope to focus entirely on the nuances of this single scenario.
+Anyways, the plan was asupposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced such rich, unexpected mechanics that I dropped the extra scope to focus entirely on this single scenario.
 
 ---
 
@@ -26,33 +26,33 @@ Fitness graph:
 ## Design Philosophy
 
 - **Morphology Split Problem (Continuous vs. Discrete Body Mutations):**  
-  The original goal was to evolve radically different body plans while preserving motor skills across lineage splits. To prevent sudden collapse, I tried to make the mutation logic as continuous as possible in terms of structure (dividing masses proportionally and cloning/splitting existing brain nodes to carry learned muscle memory into newly added limbs.) In practice, adding or removing a body node is still fundamentally discrete. The moment a new mass or spring enters the system, the body's mechanical resonance changes completely, which turned previously coordinated contractions into erratic spasms. Because selection pressure is ruthless, any structural split caused a massive short-term fitness penalty, so populations naturally favored staying with the existing body plan and fine-tuning control weights instead.
+  The original goal was to evolve radically different body plans while preserving motor skills across lineage splits. To prevent sudden collapse in fitness, I tried to make the mutation logic as continuous as possible in terms of structure (dividing masses proportionally and cloning/splitting existing brain nodes to carry learned muscle memory into newly added limbs.) In practice, that did not work as well as I intended. The moment a new mass or spring enters the system, the body's mechanics changes completely, which almost always meant its fitness would decrease slightly. Because selection pressure is ruthless, any structural split caused a massive short-term fitness penalty, so populations naturally favored staying with the existing body plan and fine-tuning control weights instead.
   
 - **Depth Over Artificial Modularity:**  
-  Rather than forcing complex multi-body or multi-terrain mechanics that fight the optimizer, I leaned into the natural physics of flat-plane displacement ($X_{final} - X_{initial}$). Constraining the problem revealed that even a 4-node starter setup holds an enormous search space, discovering everything from inchworm friction crawls to high-speed momentum wheels.
+  Rather than forcing complex multi-body or multi-terrain mechanics that fight the optimizer, I leaned into the natural physics of flat-plane displacement ($X_{final} - X_{initial}$). Constraining the problem revealed that even a 4-node starter setup holds an enormous search space.
 
-- **Zero Handcrafted Bias:**  
-  There are no target gaits, balance penalties, or joint limits. The fitness function only measures forward displacement. If a creature figures out how to fling itself, roll, or exploit contact physics to travel farther than conventional walking, the engine rewards it.
+- **No Bias:**  
+  The fitness function only measures forward displacement, meaning anything goes. If a creature figures out how to fling itself, roll, or exploit contact physics to travel farther than conventional walking, the engine rewards it.
 
 - **Headless Simulation:**  
   Evolution happens headlessly across all CPU cores via Java thread pools, completely detached from graphics. Rendering only spins up to capture milestone replays.
 
 ### Tech & Features
 
-- **Kotlin + libGDX + Box2D**: Core simulation and custom physics rendering.
-- **Multithreading**: Evaluates population cohorts in parallel with Java thread pools.
+- **Kotlin + libGDX + Box2D**: Simulation and physics rendering.
+- **Multithreading**: Simulates population in parallel with Java thread pools.
 - 
 ---
 
 ### Running It
 This project currently exists as a bespoke research prototype and personal experiment. Reproducing the exact build requires manually configuring the libGDX environment and Box2D physics bindings. If there is enough interest, I can clean up the repository and provide a streamlined, one-click setup script.
 
-### Notes to self if I ever revisit this:
-* speciation
-* sexual reproduction
-* dynamic mutation rates
-* create a better ui
-* coevolution (multiple creatures interacting in the same world)
+### Things to try doing in the future:
+* Speciation
+* Sexual reproduction
+* Dynamic mutation rates
+* Create a better gui
+* Coevolution (multiple creatures interacting in the same world)
 
 ### Gallery:
 <details>
