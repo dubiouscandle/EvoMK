@@ -1,0 +1,6 @@
+# speciation
+# sessional reproduction
+# dynamic mutation rates
+# create a better ui
+
+# coevolution (multiple creatures in the same world)
