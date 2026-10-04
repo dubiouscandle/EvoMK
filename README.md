@@ -1,33 +1,97 @@
-# Evo
+# EvoMK
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+A 2D physics sandbox built in Kotlin using libGDX and Box2D. It co-evolves body topologies alongside continuous neural controllers rewarded strictly on horizontal distance over 1,200 ticks.
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+This started out purely as a weekend toy project to see what would happen if I threw simulated physics and neural nets together without any rules. Going into it, I always had a hard time intuitively buying into biological evolution. For example, the leap from random mutations to something as specialized as a beaver building a dam felt kind of unrealistic to me. But watching uncoordinated muscle twitches accidentally stumble into a self-stabilizing flywheel completely changed how I think about emergent complexity.
 
-## Platforms
+The plan was a modular framework with varying morphologies and environments. But flat-ground running alone produced such rich, unexpected mechanics that I dropped the extra scope to focus entirely on the nuances of this single scenario.
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
+---
 
-## Gradle
+### Case Study
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+The population runs at 2,000 creatures. Every time a new creature beats the previous milestone by 20m, it uses FFmpeg to capture a recording.
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+| Gen 38 (20m) | Gen 131 (81m) | Gen 212 (180m) | Gen 504 (396m) |
+| :---: | :---: | :---: | :---: |
+| <img width="180" height="180" alt="milestone_gen_38_fit_20_square" src="https://github.com/user-attachments/assets/02cd7b3c-a10e-49aa-93e5-f8f662fc7b89" /> | <img width="180" height="180" alt="milestone_gen_131_fit_81_square" src="https://github.com/user-attachments/assets/3d245454-d456-4378-b586-06eb286ee541" /> |<img width="180" height="180" alt="milestone_gen_212_fit_180_square" src="https://github.com/user-attachments/assets/cd9fbf1e-72ad-442c-a4e9-318129973e23" /> | <img width="180" height="180" alt="milestone_gen_504_fit_396_square" src="https://github.com/user-attachments/assets/04b74eb2-7f8a-439b-adc4-636773174be3" />|
+| *Learning to jump a little bit* | *Consistent jumping* | *Discovers how to roll* | *High-speed momentum* |
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+Fitness graph:
+
+<img width="600" height="400" alt="desmos-graph" src="https://github.com/user-attachments/assets/ee80104c-927d-4272-b4c9-3342d0e7bf4f" />
+
+---
+
+## Design Philosophy
+
+- **Morphology Split Problem (Continuous vs. Discrete Body Mutations):**  
+  The original goal was to evolve radically different body plans while preserving motor skills across lineage splits. To prevent sudden collapse, I tried to make the mutation logic as continuous as possible in terms of structure (dividing masses proportionally and cloning/splitting existing brain nodes to carry learned muscle memory into newly added limbs.) In practice, adding or removing a body node is still fundamentally discrete. The moment a new mass or spring enters the system, the body's mechanical resonance changes completely, which turned previously coordinated contractions into erratic spasms. Because selection pressure is ruthless, any structural split caused a massive short-term fitness penalty, so populations naturally favored staying with the existing body plan and fine-tuning control weights instead.
+  
+- **Depth Over Artificial Modularity:**  
+  Rather than forcing complex multi-body or multi-terrain mechanics that fight the optimizer, I leaned into the natural physics of flat-plane displacement ($X_{final} - X_{initial}$). Constraining the problem revealed that even a 4-node starter setup holds an enormous search space, discovering everything from inchworm friction crawls to high-speed momentum wheels.
+
+- **Zero Handcrafted Bias:**  
+  There are no target gaits, balance penalties, or joint limits. The fitness function only measures forward displacement. If a creature figures out how to fling itself, roll, or exploit contact physics to travel farther than conventional walking, the engine rewards it.
+
+- **Headless Simulation:**  
+  Evolution happens headlessly across all CPU cores via Java thread pools, completely detached from graphics. Rendering only spins up to capture milestone replays.
+
+### Tech & Features
+
+- **Kotlin + libGDX + Box2D**: Core simulation and custom physics rendering.
+- **Multithreading**: Evaluates population cohorts in parallel with Java thread pools.
+- 
+---
+
+### Running It
+This project currently exists as a bespoke research prototype and personal experiment. Reproducing the exact build requires manually configuring the libGDX environment and Box2D physics bindings. If there is enough interest, I can clean up the repository and provide a streamlined, one-click setup script.
+
+### Notes to self if I ever revisit this:
+* speciation
+* sexual reproduction
+* dynamic mutation rates
+* create a better ui
+* coevolution (multiple creatures interacting in the same world)
+
+### Gallery:
+<details>
+  <summary><b>Peak triangle (Gen 2074, Fitness 476)</b></summary>
+  <br>
+
+  https://github.com/user-attachments/assets/a37c6cdf-5229-4be8-b81c-50a89e7069e4
+
+</details>
+
+<details>
+  <summary><b>Peak Pentagon (Gen 1572, Fitness 541)</b></summary>
+  <br>
+
+  https://github.com/user-attachments/assets/f3b06f68-9c67-4a91-a38e-da982e4a8672
+</details>
+<details>
+  <summary><b>Creature loses balance and then gives up</b></summary>
+  <br>
+  
+  https://github.com/user-attachments/assets/f0a19c19-2ecb-4238-83c8-7bd60a250b82
+</details>
+
+
+Before adding implementing recording to the simulation loop, dozens of weird, ephemeral body plans came and went unrecorded. Instead of burning CPU cycles trying to force the optimizer to stumble into the exact same evolutionary dead ends, I thought it would be cool to document them from memory, kind of like I'm Charles Darwin:
+
+
+<details>
+    <summary><b>Sketches</b></summary>
+  
+</<img width="300" height="300" alt="2026_10_04_0og_Kleki" src="https://github.com/user-attachments/assets/3b97fe7e-ff9d-4cef-96dc-f74f9ccc2b48" />
+
+<img width="300" height="300" alt="2026_10_04_0o9_Kleki" src="https://github.com/user-attachments/assets/6399fac8-b522-44dd-8da7-4d81b2734f9f" />
+
+<img width="300" height="300" alt="2026_10_04_0od_Kleki" src="https://github.com/user-attachments/assets/578e2c06-f6f1-430a-be71-5cb3bd8ee620" />
+
+I'll add more if I remember any more. I think I sat at my computer for like 2 days trying to see what creatures could come up.
+details>
+
+
+
+
