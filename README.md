@@ -2,9 +2,7 @@
 
 A 2D physics sandbox built in Kotlin using libGDX and Box2D. It co-evolves body topologies alongside continuous neural controllers rewarded strictly on horizontal distance over 1,200 ticks.
 
-This started out purely as a weekend toy project to see what would happen if I threw simulated physics and neural nets together without any rules. Going into it, I always had a hard time intuitively buying into biological evolution. For example, the leap from random mutations to something as specialized as a beaver building a dam felt kind of unrealistic to me. But watching uncoordinated muscle twitches accidentally stumble into a self-stabilizing flywheel completely changed how I think about emergent complexity.
-
-Anyways, the plan was asupposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced such rich, unexpected mechanics that I dropped the extra scope to focus entirely on this single scenario.
+Anyways, the plan was asupposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced a lot of cool stuff so I was satisfied enough to leave it a that.
 
 ---
 
@@ -26,33 +24,15 @@ Fitness graph:
 ## Design Philosophy
 
 - **Morphology Split Problem (Continuous vs. Discrete Body Mutations):**  
-  The original goal was to evolve radically different body plans while preserving motor skills across lineage splits. To prevent sudden collapse in fitness, I tried to make the mutation logic as continuous as possible in terms of structure (dividing masses proportionally and cloning/splitting existing brain nodes to carry learned muscle memory into newly added limbs.) In practice, that did not work as well as I intended. The moment a new mass or spring enters the system, the body's mechanics changes completely, which almost always meant its fitness would decrease slightly. Because selection pressure is ruthless, any structural split caused a massive short-term fitness penalty, so populations naturally favored staying with the existing body plan and fine-tuning control weights instead.
-  
-- **Depth Over Artificial Modularity:**  
-  Rather than forcing complex multi-body or multi-terrain mechanics that fight the optimizer, I leaned into the natural physics of flat-plane displacement ($X_{final} - X_{initial}$). Constraining the problem revealed that even a 4-node starter setup holds an enormous search space.
-
-- **No Bias:**  
-  The fitness function only measures forward displacement, meaning anything goes. If a creature figures out how to fling itself, roll, or exploit contact physics to travel farther than conventional walking, the engine rewards it.
-
-- **Headless Simulation:**  
-  Evolution happens headlessly across all CPU cores via Java thread pools, completely detached from graphics. Rendering only spins up to capture milestone replays.
+  The original goal was to evolve radically different body plans while preserving motor skills across lineage splits. To prevent sudden collapse in fitness, I tried to make the mutation logic as continuous as possible in terms of structure (dividing masses proportionally and cloning/splitting existing brain nodes to carry learned muscle memory into newly added limbs.) In practice, that did not work as well as I intended. The moment a new mass or spring enters the system, the body's mechanics changes completely, which almost always meant its fitness would decrease slightly. But, it still did work in a small sample of simulations, so its not a total writeoff.
 
 ### Tech & Features
-
 - **Kotlin + libGDX + Box2D**: Simulation and physics rendering.
 - **Multithreading**: Simulates population in parallel with Java thread pools.
-- 
 ---
 
 ### Running It
-This project currently exists as a bespoke research prototype and personal experiment. Reproducing the exact build requires manually configuring the libGDX environment and Box2D physics bindings. If there is enough interest, I can clean up the repository and provide a streamlined, one-click setup script.
-
-### Things to try doing in the future:
-* Speciation
-* Sexual reproduction
-* Dynamic mutation rates
-* Create a better gui
-* Coevolution (multiple creatures interacting in the same world)
+This project currently exists as a bespoke research prototype and personal experiment. If you want to run it, you have to run the lwjgl desktop launcher java file, and if you want to change stuff you would have to change the variables directly in the main files.
 
 ### Gallery:
 <details>
