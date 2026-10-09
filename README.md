@@ -2,7 +2,7 @@
 
 A 2D physics sandbox built in Kotlin using libGDX and Box2D. It co-evolves body topologies alongside continuous neural controllers rewarded strictly on horizontal distance over 1,200 ticks.
 
-Anyways, the plan was asupposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced a lot of cool stuff so I was satisfied enough to leave it a that.
+Anyways, the plan was supposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced a lot of cool stuff so I was satisfied enough to leave it a that.
 
 ---
 
@@ -29,7 +29,6 @@ Fitness graph:
 ### Tech & Features
 - **Kotlin + libGDX + Box2D**: Simulation and physics rendering.
 - **Multithreading**: Simulates population in parallel with Java thread pools.
----
 
 ### Running It
 This project currently exists as a bespoke research prototype and personal experiment. If you want to run it, you have to run the lwjgl desktop launcher java file, and if you want to change stuff you would have to change the variables directly in the main files.
