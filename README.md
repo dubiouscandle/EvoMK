@@ -43,7 +43,7 @@ This project currently exists as a bespoke research prototype and personal exper
 </details>
 
 <details>
-  <summary><b>Peak Pentagon (Gen 1572, Fitness 541)</b></summary>
+  <summary><b>Peak Pentagon (Gen 1572, Fitness 54) | This one is super cool </b></summary>
   <br>
 
   https://github.com/user-attachments/assets/f3b06f68-9c67-4a91-a38e-da982e4a8672
