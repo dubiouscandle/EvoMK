@@ -2,7 +2,7 @@
 
 A 2D physics sandbox built in Kotlin using libGDX and Box2D. It co-evolves body topologies alongside continuous neural controllers rewarded strictly on horizontal distance over 1,200 ticks.
 
-Anyways, the plan was supposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced a lot of cool stuff so I was satisfied enough to leave it a that.
+Anyways, the plan was supposed to be a modular framework with varying morphologies and environments. But flat-ground running alone produced a lot of cool stuff so I was satisfied enough to leave it at that. Maybe I will revisit this in the future.
 
 ---
 
@@ -13,7 +13,7 @@ The population runs at 2,000 creatures. Every time a new creature beats the prev
 | Gen 38 (20m) | Gen 131 (81m) | Gen 212 (180m) | Gen 504 (396m) |
 | :---: | :---: | :---: | :---: |
 | <img width="180" height="180" alt="milestone_gen_38_fit_20_square" src="https://github.com/user-attachments/assets/02cd7b3c-a10e-49aa-93e5-f8f662fc7b89" /> | <img width="180" height="180" alt="milestone_gen_131_fit_81_square" src="https://github.com/user-attachments/assets/3d245454-d456-4378-b586-06eb286ee541" /> |<img width="180" height="180" alt="milestone_gen_212_fit_180_square" src="https://github.com/user-attachments/assets/cd9fbf1e-72ad-442c-a4e9-318129973e23" /> | <img width="180" height="180" alt="milestone_gen_504_fit_396_square" src="https://github.com/user-attachments/assets/04b74eb2-7f8a-439b-adc4-636773174be3" />|
-| *Learning to jump a little bit* | *Consistent jumping* | *Discovers how to roll* | *High-speed momentum* |
+| *Learning to jump a little bit* | *Consistent jumping* | *Discovers how to roll* | *The peak* |
 
 Fitness graph:
 
